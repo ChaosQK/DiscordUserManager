@@ -119,10 +119,10 @@ function getTimeDifference(milli)
   const hours = parseInt(milli / (1000*60*60))
   const day = parseInt(milli / (1000*60*60*24))
 
-  return (day === 0 ? "" : day + " day(s)") +
-         (hours === 0 ? "" : hours + " hour(s)") +
-         (minutes === 0 ? "" : minutes + " minute(s)") +
-         (seconds === 0 ? "" : seconds + " second(s)");
+  return (day === 0 ? "" : day + " day(s) ") +
+         (hours === 0 ? "" : (hours % 24) + " hour(s) ") +
+         (minutes === 0 ? "" : (minutes % 60) + " minute(s) ") +
+         (seconds === 0 ? "" : (seconds % 60) + " second(s)");
          
 }
 
