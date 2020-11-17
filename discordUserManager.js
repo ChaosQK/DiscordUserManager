@@ -10,7 +10,7 @@ var membersDictionary = {};
 
 client.once('ready', () => {
   console.log('Ready!');
-  client.user.setPresence({ activity: { name: 'with ur mum.', type: "PLAYING" }, status: 'online' });
+  client.user.setPresence({ activity: { name: 'with something', type: "PLAYING" }, status: 'online' });
   initAllMembers();
 
   setInterval(() => {
