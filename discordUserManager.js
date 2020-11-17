@@ -17,12 +17,12 @@ client.once('ready', () => {
     for(var memID in membersDictionary)
     {
       var dayDiff = getDaysDifference(new Date(Date.now())).getTime() - membersDictionary[memID].getTime();
-      var member = client.guilds.cache.get("777924239399059476").members.cache.get(memID);
+      var member = client.guilds.cache.get("GUILDID").members.cache.get(memID);
       
       if(dayDiff > 7)
       {
-        member.roles.add("777976209413242890");
-        member.roles.remove("777935956904247327");
+        member.roles.add("ROLEID");
+        member.roles.remove("ROLEID");
       }
     }
   }, 1000*60*60);
@@ -32,10 +32,10 @@ async function initAllMembers()
 {
   var memoryDictionary;
 
-  const allmembers = client.guilds.cache.get("777924239399059476").members.fetch().then(function(member) {
+  const allmembers = client.guilds.cache.get("GUILDID").members.fetch().then(function(member) {
     var memDic = {};
     member.each(mem => {
-      if(mem.user.username !== "TruJamerBot")
+      if(mem.user.username !== "BOTNAME")
       {
         memDic[mem.user.id] = new Date(Date.now());
       }
@@ -57,7 +57,7 @@ client.on('message', message => {
   {
     message.delete()
     var args = message.content.split(" ");
-    if (message.member.roles.cache.has("777945973133541388") || message.member.roles.cache.has("777931131261157438"))
+    if (message.member.roles.cache.has("ADMINID") || message.member.roles.cache.has("MODID"))
     {
       if(args.length === 2)
       {
@@ -113,9 +113,7 @@ function getUserFromMention(mention) {
 }
 
 function getTimeDifference(milli)
-{
-  //return moment(milli).format("y [year(s)] M [month(s)] d [day(s)] HH [hour(s)] mm [minute(s)] ss [second(s)]")
-  
+{ 
   const seconds = parseInt(milli / (1000))
   const minutes = parseInt(milli / (1000*60))
   const hours = parseInt(milli / (1000*60*60))
@@ -149,4 +147,4 @@ client.on('guildMemberRemove', member => {
   }
 }*/
 
-client.login('');
+client.login('*************************************************************');
